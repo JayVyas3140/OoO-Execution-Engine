@@ -1,0 +1,85 @@
+========================================
+TEST 1: BASIC EXECUTION
+========================================
+PASS: COMMIT TAG = 0
+PASS: COMMIT DEST = R3
+PASS: COMMIT VALUE = 30
+
+========================================
+TEST 2: RAW DEPENDENCY
+========================================
+PASS: COMMIT TAG = 0
+PASS: COMMIT DEST = R3
+PASS: COMMIT VALUE = 30
+PASS: COMMIT TAG = 1
+PASS: COMMIT DEST = R4
+PASS: COMMIT VALUE = 37
+
+========================================
+TEST 3: INDEPENDENT INSTRUCTIONS
+========================================
+PASS: COMMIT TAG = 0
+PASS: COMMIT DEST = R3
+PASS: COMMIT VALUE = 30
+PASS: COMMIT TAG = 1
+PASS: COMMIT DEST = R6
+PASS: COMMIT VALUE = 42
+
+========================================
+TEST 4: ROB RETIREMENT ORDER
+========================================
+PASS: COMMIT TAG = 0
+PASS: COMMIT DEST = R3
+PASS: COMMIT VALUE = 30
+PASS: COMMIT TAG = 1
+PASS: COMMIT DEST = R6
+PASS: COMMIT VALUE = 70
+PASS: COMMIT TAG = 2
+PASS: COMMIT DEST = R9
+PASS: COMMIT VALUE = 42
+
+========================================
+TEST 5: WAW / REGISTER RENAMING
+========================================
+PASS: COMMIT TAG = 0
+PASS: COMMIT DEST = R3
+PASS: COMMIT VALUE = 30
+PASS: COMMIT TAG = 1
+PASS: COMMIT DEST = R3
+PASS: COMMIT VALUE = 150
+
+========================================
+TEST 6: MULTIPLE IN-FLIGHT INSTRUCTIONS
+========================================
+PASS: Execution Unit occupied by in-flight instruction
+PASS: COMMIT TAG = 0
+PASS: COMMIT DEST = R3
+PASS: COMMIT VALUE = 30
+PASS: COMMIT TAG = 1
+PASS: COMMIT DEST = R6
+PASS: COMMIT VALUE = 70
+PASS: COMMIT TAG = 2
+PASS: COMMIT DEST = R9
+PASS: COMMIT VALUE = 42
+
+========================================
+TEST 7: ROB WRAPAROUND + INPUT BACKPRESSURE
+========================================
+PASS: COMMIT R3 = 30
+PASS: COMMIT R6 = 70
+PASS: COMMIT R9 = 110
+PASS: COMMIT R12 = 150
+PASS: COMMIT R15 = 190
+PASS: COMMIT R18 = 230
+PASS: COMMIT R21 = 270
+PASS: COMMIT R24 = 310
+PASS: COMMIT R27 = 350
+PASS: COMMIT R30 = 390
+PASS: ROB TAG REUSE VERIFIED (0 and 1 reused)
+PASS: BACKPRESSURE STREAM COMPLETED WITHOUT DROPPED INSTRUCTIONS
+
+========================================
+ALL OOO CORE TESTS COMPLETE
+========================================
+Note: $finish : tb_ooo_core.sv(430)
+Time: 1396 ns Iteration: 0 Instance: /tb_ooo_core
